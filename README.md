@@ -1,13 +1,10 @@
 # File-System-Visualization-with-Treemap
 
 # Introduction
-Trees are a fundamental data structure and can be used to model all sorts of hierarchical data. When modeling data, the leaves represent the data values themselves, and internal nodes represent groupings of this data. Files on a computer can be viewed this way: regular files (e.g., PDF documents, video files, Python source code) are located in folders (directories), which are then located in lower-level folders, until you eventually come to the root of your file system. (We'll explore this idea more in CSC209 -- Intro to Systems -- and CSC369 -- Operating Systems.)
 
 Sometimes size is attached to the data in a tree. For example, in a tree representing the departments of a company, the size of a node could be the dollar amount of all sales for that department, or the number of employees in that department. Or in a tree representing a computer's file system, the size of a node could be the size of the file.
 
 A treemapLinks to an external site. is a visualisation technique that shows a tree's structure according to the weights (or sizes) of its data values. It uses rectangles to show subtrees. The rectangles are scaled to reflect the proportional sizes of each piece of data. Some free programs use treemaps to visualise the size of files on your computer, such as (Windows) WinDirStatLinks to an external site., (OSX) Disk Inventory XLinks to an external site., and (Linux) KDirStatLinks to an external site..
-
-For this assignment, you will write an interactive treemap visualisation tool. It will have a general API (implemented with inheritance, naturally!), and you will define specific subclasses that will allow you to visualize two different kinds of data: the files and folders in your computer, and a set of research papers. We will use the following simplifications in this assignment:
 
 The order in which subtrees are shown matters when modelling files, but not when modelling research paper data.
 The colours in the visualization are independently randomly-generated for each node
