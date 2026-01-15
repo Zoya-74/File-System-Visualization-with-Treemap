@@ -1,4 +1,6 @@
 # File-System-Visualization-with-Treemap
+## Copyright
+All copyright of the code skeleton is property of University of Toronto, the method implementation is personal code that is not for use by others in any form.
 ## Project was implemented as part of a UofT course, thus limited code snippets are publicly available. Full code demonstration available upon request @ zoyaf.18.1@gmail.com
 # Visualiser: the Treemap Algorithm
 The next component of our program is the treemap algorithm itself. It takes a tree and a 2-D window to fill with the visualization, and returns a list of rectangles to render, based on the tree structure and data_size attribute for each node.
