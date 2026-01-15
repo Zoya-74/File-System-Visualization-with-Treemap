@@ -1,17 +1,17 @@
 # File-System-Visualization-with-Treemap
-
+## Project was implemented as part of a UofT course, thus limited code snippets are publicly available. Full code demonstration available upon request @ zoyaf.18.1@gmail.com
 # Visualiser: the Treemap Algorithm
 The next component of our program is the treemap algorithm itself. It takes a tree and a 2-D window to fill with the visualization, and returns a list of rectangles to render, based on the tree structure and data_size attribute for each node.
 
 For all rectangles, we'll use the pygame representation of a rectangle, which is a tuple of four integers (x, y, width, height), where (x, y) represents the upper-left corner of the rectangle. In pygame, the origin is in the upper-left corner and the y-axis points down. So, the lower-right corner of a rectangle has coordinates (x + width, y + height). Each unit on both axes is a pixel on the screen.
 
-There are many variations of the treemap algorithm. For this assignment, we'll use a dynamic version – one that lets us see different visualizations of the same tree. However, the process for generating the tree is always the same, even as the displayed-tree changes.
+We'll use a dynamic version – one that lets us see different visualizations of the same tree. However, the process for generating the tree is always the same, even as the displayed-tree changes.
 
 For simplicity we'll use "size" to refer to the data_size attribute in the algorithm below.
 
 The update_rectangles method should work as specified below:
 
-Input: A data tree that is an instance of some subclass of TMTree, and a pygame rectangle (the display area to fill).
+Input: A data tree that is an instance of some subclass of the Tree system, and a pygame rectangle (the display area to fill).
 
 Output: None. It will directly modify the `.rect` attributes of the tree objects inside the data tree. 
 
@@ -29,20 +29,7 @@ Example: suppose the input rectangle is (0, 0, 200, 100), and the displayed-tree
 - The second subtree should have width 100 (50% of 200) and starts immediately after the first one: (40, 0, 100, 100).
 - The third subtree has width 60 and takes up the remaining space: (140, 0, 60, 100)
 
-Note that the three rectangles' edges overlap!
-
-You can assume that every non-zero-sized subtree will have a large enough size that its computed rectangle has a width and height >= 1.
-
-If the height is greater than or equal to the width, then make horizontal rectangles instead of vertical ones. Divide the space proportionately, as in step 3.
-Recurse on each of the subtrees in the displayed-tree, passing in the corresponding smaller rectangle from step 3 or 4.
-Note about rounding: because you're calculating proportions here, the exact values will often be floats instead of integers. For all but the last rectangle, always truncate the value (i.e., round down to the nearest integer). In other words, if you calculate that a rectangle should be (0, 0, 10.9, 100), round the width down to (0, 0, 10, 100). Then a rectangle below it would start at (0, 100), and a rectangle beside it would start at (10, 0).
-
-However, the final (rightmost or bottommost) edge of the last smaller rectangle should always be equal to the outer edge of the input rectangle. This means that the last subtree might be a bit bigger than its true proportion of the total size.
-
-You will implement this algorithm in the update_rectangles method.
-
 # Visualiser: Displaying the Treemap
-The code in treemap_visualiser.py runs the treemap algorithm, and then uses pygame to render a graphical display to the user. You will only edit this file to uncomment or make minor edits to the client code for the TMTree class.
 
 The pygame window is divided into two parts:
 
@@ -65,7 +52,6 @@ b. The user can left-click on a rectangle to select it. If a rectangle is alread
 
 The following three events allow the user to actually mutate the data tree, and see the changes reflected in the display. The original data is not changed - we are just using the visualization as a tool for simulating changes on a dataset. Once the user performs one of these events, the tree is no longer in sync with the original data set.
 
-Important: All changes described below should only change the tree object. If a rectangle is deleted or its size changes, DO NOT try to change the actual file on your computer!
 
 c. If the user presses the Up Arrow or Down Arrow key when a rectangle is selected, the selected leaf's data_size increases or decreases by 1% of its current value, respectively. This affects the data_size of its ancestors as well, and the visualisation must update to show the new sizes.
 
@@ -77,7 +63,6 @@ d. If the user selects a rectangle that is a leaf in the whole tree, then hovers
 
 e. If the user selects a rectangle that is either a leaf or internal node and then presses Del, as long as it has a parent (i.e. it is not the root node), then that node should be deleted by removing it from the parent's subtrees (and hence the visualization).
 
-The next six events change the displayed-tree but not the underlying data tree.
 
 f. If the user selects a rectangle and then presses e, the tree corresponding to that rectangle is expanded in the displayed-tree. If the tree is a leaf, nothing happens.
 
