@@ -144,19 +144,7 @@ class REDACTED:
             total_size = self.data_size
             for subtree in self._subtrees:
                 percent = subtree.data_size / total_size
-                if width > height:
-                    new_width = math.floor(width * percent)
-                    if width < 0:
-                        new_width = math.ceil(width * percent)
-                    subtree.rect = (x, y, new_width, height)
-                    if subtree is self._subtrees[-1]:
-                        subtree.rect = (x, y, rect[2] - x + rect[0], height)
-                        subtree.update_rectangles((x, y, rect[2] - x + rect[0],
-                                                   height))
-
-                    else:
-                        subtree.update_rectangles(subtree.rect)
-                    x += new_width
+                # REDACTED CODE
                 else:
                     new_height = math.floor(height * percent)
                     if height < 0:
@@ -208,23 +196,7 @@ class REDACTED:
             return self
 
         if self.rect[2] > self.rect[3]:
-
-            for subtree in self._subtrees:
-                size = subtree.rect
-                if (size[0] <= pos[0] <= size[0] + size[2]
-                        and self._expanded):
-                    return subtree.get_tree_at_position(pos)
-                elif size[0] <= pos[0] <= size[0] + size[2]:
-                    return subtree
-
-        else:
-            for subtree in self._subtrees:
-                size = subtree.rect
-                if (size[1] <= pos[1] <= size[1] + size[3]
-                        and self._expanded):
-                    return subtree.get_tree_at_position(pos)
-                elif size[1] <= pos[1] <= size[1] + size[3]:
-                    return subtree
+            # REDACTED CODE
         return None
 
     def update_data_sizes(self) -> int:
@@ -375,20 +347,10 @@ class REDACTED:
         root = self._parent_tree
         root._recalculate_data_size()
 
-    def get_separator(self) -> str:
-        """Return the string used to separate names in the string
-        representation of a path from the tree root to this tree.
-        """
-        raise NotImplementedError
-
-    def get_suffix(self) -> str:
-        """Return the string used at the end of the string representation of
-        a path from the tree root to this tree.
-        """
-        raise NotImplementedError
+   
 
 
-class FileSystemTree(TMTree):
+class FileSystemTree(REDACTED):
     """A tree representation of files and folders in a file system.
 
     The internal nodes represent folders, and the leaves represent regular
