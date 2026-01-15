@@ -13,8 +13,8 @@ from random import randint
 from typing import List, Tuple, Optional
 
 
-class TMTree:
-    """A TreeMappableTree: a tree that is compatible with the treemap
+class REDACTED:
+    """A REDACTED: a tree that is compatible with the treemap
     visualiser.
 
     This is an abstract class that should not be instantiated directly.
