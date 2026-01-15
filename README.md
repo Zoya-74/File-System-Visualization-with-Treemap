@@ -1,13 +1,5 @@
 # File-System-Visualization-with-Treemap
 
-# Introduction
-
-Sometimes size is attached to the data in a tree. For example, in a tree representing the departments of a company, the size of a node could be the dollar amount of all sales for that department, or the number of employees in that department. Or in a tree representing a computer's file system, the size of a node could be the size of the file.
-
-A treemapLinks to an external site. is a visualisation technique that shows a tree's structure according to the weights (or sizes) of its data values. It uses rectangles to show subtrees. The rectangles are scaled to reflect the proportional sizes of each piece of data. Some free programs use treemaps to visualise the size of files on your computer, such as (Windows) WinDirStatLinks to an external site., (OSX) Disk Inventory XLinks to an external site., and (Linux) KDirStatLinks to an external site..
-
-The order in which subtrees are shown matters when modelling files, but not when modelling research paper data.
-The colours in the visualization are independently randomly-generated for each node
 # Visualiser: the Treemap Algorithm
 The next component of our program is the treemap algorithm itself. It takes a tree and a 2-D window to fill with the visualization, and returns a list of rectangles to render, based on the tree structure and data_size attribute for each node.
 
@@ -47,7 +39,7 @@ Note about rounding: because you're calculating proportions here, the exact valu
 
 However, the final (rightmost or bottommost) edge of the last smaller rectangle should always be equal to the outer edge of the input rectangle. This means that the last subtree might be a bit bigger than its true proportion of the total size.
 
-You will implement this algorithm in the update_rectangles method in TMTree.
+You will implement this algorithm in the update_rectangles method.
 
 # Visualiser: Displaying the Treemap
 The code in treemap_visualiser.py runs the treemap algorithm, and then uses pygame to render a graphical display to the user. You will only edit this file to uncomment or make minor edits to the client code for the TMTree class.
